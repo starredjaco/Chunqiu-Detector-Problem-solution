@@ -132,6 +132,16 @@
 ---
 
 ## TEE 与密钥证明检测
+<details>
+<summary>TEE伪造2</summary>
+> 先确认普通签名、纯 ATTEST_KEY 密钥签发子证书都正常。
+> 通过 Keystore2 创建同时具有 SIGN + ATTEST_KEY 用途的密钥。
+> 如果它能正常签名，但有、无挑战两组测试中，签发子证书都返回 -49，就报 “TEE 伪造(2)”。
+创建时正常拒绝混合用途（如正常机的 -3），或两种能力都正常，都不会报。
+>**解决办法**
+>-解决办法特别简单，换一个模块就行
+
+</details>
 
 <details>
 <summary>TEE环境不可信</summary>
